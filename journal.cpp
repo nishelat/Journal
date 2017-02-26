@@ -70,7 +70,7 @@ void createFile(int i) {
 
 // Encrypts a string
 string encryptString(string entry) {
-	for(int i = 0; i < entry.length(); i++) {
+	for(unsigned int i = 0; i < entry.length(); i++) {
 		entry[i] += 1;
 	}
 	return entry;
@@ -78,7 +78,7 @@ string encryptString(string entry) {
 
 // Decrypts a string
 string decryptString(string entry) {
-	for(int i = 0; i < entry.length(); i++) {
+	for(unsigned int i = 0; i < entry.length(); i++) {
 		entry[i] -= 1;
 	}
 	return entry;
@@ -164,7 +164,7 @@ string loadEntry(int i) {
 // Prints all the current entry previews
 void printPreviews() {
 	// Open each entry and print the first 15 chars
-	for(int i = 1; i < findInt(); i++) {
+	for(unsigned int i = 1; i < findInt(); i++) {
 		string name = int_to_string(i) + ".txt";
 		ifstream journal;
 		journal.open(name.c_str());
@@ -206,6 +206,8 @@ void readEntry() {
 }
 
 int main() {
+	// Clear the screen
+	system("cls");
 	// Ask for a password
 	while(checkPassword("password")) {
 		cout << endl << "Incorrect, try again." << endl << endl;
@@ -227,5 +229,6 @@ int main() {
 		}
 	}
 	while(response != "3");
+	system("cls");
 	return 0;
 }
